@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        $('div').hide(5000).show(5000).fadeOut(5000) //add os seletores e encadiar varias funcões
+        console.log($('div').get(0)) // obter o nó da dom utilizando metodo get
+        console.log($.isEmptyObject({ nome: null })) // usando funçoes utilitarias 
+        console.log(jQuery.inArray(3, [1,2,3])) // podendo referenciar com  a palavra jQuery
+
+        // criando um plugin
+        $.fn.fundoAzul = function() {
+            this.css('background-color', 'blue')
+            return this
+        }
+        // utilizando o plugin
+        $('body').fundoAzul().fadeOut(6000)
+    </script>
+</body>
