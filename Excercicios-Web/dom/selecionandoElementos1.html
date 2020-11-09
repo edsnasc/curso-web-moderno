@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>
+        /* nesse código ele esta pegando um id 'primeiro' e add uma classe 'destaque' */
+        document.getElementById('primeiro').classList.add('destaque')
+
+        /* aqui ele seleciona todas as tag com nome 'div' e transforma em um array 
+        e percorre esse array com o forEach e remove a classe 'destaque' de todas as div */
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        /* aqui é uma outra forma de transforma um html colection em array ussando o spread "..." para usar as funções ForEach, Map, Reduce...  */
+        const divsArray = [...divs]
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        /*aqui seleciona a classe 'ultimo' e e percorre os elementos com 'forOf' e remove a classe destaque  */
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+
+    </script>
+</body>
+
+</html>
