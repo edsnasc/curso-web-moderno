@@ -1,0 +1,30 @@
+> use wm
+switched to db wm
+>
+>
+> db.createCollection('estados')
+{ "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+wm      0.000GB
+> show collections
+estados
+> db.createCollection('Estados')
+{ "ok" : 1 }
+> show collections
+Estados
+estados
+> db.Estados.drop()
+true
+> show collections
+estados
+> db.estados.drop()
+true
+> show collections
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+>

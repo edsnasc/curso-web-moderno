@@ -1,0 +1,84 @@
+Estado
+nome = São Paulo, sigla = SP, regiao = Sudeste
+    Cidades
+    nome = Campinas, area = 795.7, prefeito = Jonas Donizette, populacao = 1081000
+    nome = Garulhos, populacao = 1325000
+    nome = Sorocaba, distanciaCapital = 87, populacao = 644919
+
+Cada Cidade tem o atributo _id <- ObjectId
+
+> db.estados.insert({
+... nome: "São Paulo",
+... sigla: "SP",
+... regiao: "Sudeste",
+... cidades: [{
+... _id: ObjectId(),
+... nome: "Campinas",
+... area: 795.7,
+... prefeito: "Jonas Donizette",
+... populacao: 1081000
+... }, {
+... _id: ObjectId(),
+... nome: "Guarulhos",
+... populacao: 1325400,
+... }, {
+... _id: ObjectId(),
+... nome: "Sorocaba",
+... distanciaCapital: 87,
+... populacao: 644919
+... }]
+... })
+WriteResult({ "nInserted" : 1 })
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("5fc5027ab61f8a9646fc129f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("5fc50385b61f8a9646fc12a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 3322000
+}
+{
+        "_id" : ObjectId("5fc50547b61f8a9646fc12a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5fc513b4b61f8a9646fc12a5"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "_id" : ObjectId("5fc513b4b61f8a9646fc12a2"),
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "_id" : ObjectId("5fc513b4b61f8a9646fc12a3"),
+                        "nome" : "Guarulhos",
+                        "populacao" : 1325400
+                },
+                {
+                        "_id" : ObjectId("5fc513b4b61f8a9646fc12a4"),
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}

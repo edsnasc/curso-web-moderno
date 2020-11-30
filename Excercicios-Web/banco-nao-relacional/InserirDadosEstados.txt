@@ -1,0 +1,73 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use wm
+switched to db wm
+> show collections
+> db.estados.insert({nome:"Acre", sigla: "AC", regiao:"Norte"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+estados
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+wm      0.000GB
+> db.estados.save({nome:"Alagoas",sigla: "AL", regiao: "Nordeste", populacao: 3322000})
+WriteResult({ "nInserted" : 1 })
+> db.estados.find()
+{ "_id" : ObjectId("5fc5027ab61f8a9646fc129f"), "nome" : "Acre", "sigla" : "AC", "regiao" : "Norte" }
+{ "_id" : ObjectId("5fc50385b61f8a9646fc12a0"), "nome" : "Alagoas", "sigla" : "AL", "regiao" : "Nordeste", "populacao" : 3322000 }
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("5fc5027ab61f8a9646fc129f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("5fc50385b61f8a9646fc12a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 3322000
+}
+> db.estados.insert({
+... nome:"Rio de Janeiro",
+... sigla: "RJ",
+... regiao: "Sudeste",
+... cidades: [{
+... nome: "Niteroi",
+... area: 133.9,
+... populacao: 487562
+... }]
+... })
+WriteResult({ "nInserted" : 1 })
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("5fc5027ab61f8a9646fc129f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("5fc50385b61f8a9646fc12a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 3322000
+}
+{
+        "_id" : ObjectId("5fc50547b61f8a9646fc12a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
