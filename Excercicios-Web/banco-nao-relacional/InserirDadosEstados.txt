@@ -33,16 +33,17 @@ WriteResult({ "nInserted" : 1 })
         "regiao" : "Nordeste",
         "populacao" : 3322000
 }
-> db.estados.insert({
-... nome:"Rio de Janeiro",
-... sigla: "RJ",
-... regiao: "Sudeste",
-... cidades: [{
-... nome: "Niteroi",
-... area: 133.9,
-... populacao: 487562
-... }]
-... })
+db.estados.insert({
+ nome:"Rio de Janeiro",
+ sigla: "RJ",
+ regiao: "Sudeste",
+ cidades: [{
+    _id: ObjectId(),    
+ nome: "Niteroi",
+ area: 133.9,
+ populacao: 487562
+ }]
+ })
 WriteResult({ "nInserted" : 1 })
 > db.estados.find().pretty()
 {
